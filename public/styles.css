@@ -1,16 +1,53 @@
-.inimputable-img {
-    position: absolute;
+body {
+    margin: 10px 40px 0px 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+}
+
+.inimputable {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url("/static/inimputable.png");
+    width: 600px;
+    height: 640px;
+}
+
+.ininputable-question {
+    border: none;
+    color: yellow;
+    left: 30px;
+    top: 265px;
+    font-size: 28px;
+    position: relative;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 530px;
+    padding: 0px;
+    margin: 0px;
 }
 
 #inimputable-input {
-    position: absolute;
+    position: relative;
     background-color:transparent;
     border: none;
     color: white;
     top: 280px;
-    left: 20px;
-    width: 560px;
+    left: 30px;
+    width: 530px;
     min-height: 96px;
+    padding: 0px;
+    margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
 }
-/*font-size: 18px;*/
+
+.exported-wrapper {
+    position: absolute;
+    top: 48px;
+    right: 0px;
+    width: 50%;
+}
+

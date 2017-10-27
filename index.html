@@ -5,9 +5,18 @@
     <link href="/static/styles.css" rel="stylesheet">
     <script src="/static/jquery-3.2.1.min.js"></script>
     <script src="/static/html2canvas.min.js"></script>
+    
+    <!--
+    <script src="/static/canvas2image.js"></script>
+    -->
+
     <script type="text/javascript">
 
-      var fontSize = 18;
+      var fontSize = 21;
+      const exportConfig = {
+        width: 600,
+        height: 640
+      }
 
       $(document).ready(function() {
         $('#inimputable-input')
@@ -25,11 +34,12 @@
 
         $('#exportButton').click( function() {
           html2canvas($('.inimputable'), {
-            background: '#000',
-            //allowTaint: true,
-            //useCORS: true,
+            width: exportConfig.width,
+            height: exportConfig.height,
             onrendered: function(canvas) {
-              $('#exported').append(canvas);
+              $('#exported-list').prepend('<li></li>');
+              $('#exported-list li').first().append(canvas)
+              //Canvas2Image.saveAsPNG(canvas, exportConfig.width, exportConfig.height)
             }
           });
         });
@@ -38,25 +48,35 @@
       });
 
     </script>
+
   </head>
 
   <body>
 
-    <section class="inimputable">      
-        <img class="inimputable-img" src="/static/inimputable.png">
-        <div id="inimputable-input" contenteditable="true">
-          Si me van a hacer un meme yo no puedo dejar de usar '+' para <br />
-          aumentar el tamaño de la fuente y también '-' para reducirlo <br />
-          o van a decir que soy alto vago frontend...
-        </div>
+    <h2>Inimputable MEME generator!</h2>
+
+    <section class="inimputable">
+      
+      <div class="ininputable-question" contenteditable="true">
+        Que hace si le hacen un meme?
+      </div>
+
+      <div id="inimputable-input" contenteditable="true">
+        Si me llegan a hacer un meme <br/>
+        vos no podes dejar de habilitar <br /> 
+        el '+' para aumentar el tamaño de la fuente <br />
+        y sino también el '-' para reducirlo <br />
+        porque va a decir que sos hábil frontend developer...
+      </div>
+    </div>
+
+    <section class="exported-wrapper">
+
+        <h3>Podes <button id="exportButton" type="button">Generar</button> tu meme y despues darle boton derecho para bajar la imágen generada y llevarlas hasta lo más recóndito del disco duro!</h3>
+
+        <ul id="exported-list"></ul>
+
     </section>
-    <div style="position:absolute; right: 0px;">
-      <button id="exportButton" type="button">SAVE</button>
-    </div>
-
-    <div id="exported" style="position:absolute; top: 800px; border: 2px solid black;">
-
-    </div>
 
   </body>
 
