@@ -1,0 +1,16 @@
+.inimputable-img {
+    position: absolute;
+}
+
+#inimputable-input {
+    position: absolute;
+    background-color:transparent;
+    border: none;
+    color: white;
+    top: 280px;
+    left: 20px;
+    width: 560px;
+    min-height: 96px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*font-size: 18px;*/

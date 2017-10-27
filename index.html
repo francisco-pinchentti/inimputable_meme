@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link href="/static/styles.css" rel="stylesheet">
+    <script src="/static/jquery-3.2.1.min.js"></script>
+    <script src="/static/html2canvas.min.js"></script>
+    <script type="text/javascript">
+
+      var fontSize = 18;
+
+      $(document).ready(function() {
+        $('#inimputable-input')
+        .css("font-size", `${fontSize}px`)
+        .focus()
+        .bind('keydown', function(event) {
+            if (event.key !== '-' && event.key !== '+') {
+              return;
+            }
+            var adj = event.key === '-' ? -1 : 1;
+            fontSize += adj;
+            $('#inimputable-input').css("font-size", `${fontSize+adj}px`);
+            event.preventDefault();
+        });
+
+        $('#exportButton').click( function() {
+          html2canvas($('.inimputable'), {
+            background: '#000',
+            //allowTaint: true,
+            //useCORS: true,
+            onrendered: function(canvas) {
+              $('#exported').append(canvas);
+            }
+          });
+        });
+        
+
+      });
+
+    </script>
+  </head>
+
+  <body>
+
+    <section class="inimputable">      
+        <img class="inimputable-img" src="/static/inimputable.png">
+        <div id="inimputable-input" contenteditable="true">
+          Si me van a hacer un meme yo no puedo dejar de usar '+' para <br />
+          aumentar el tamaño de la fuente y también '-' para reducirlo <br />
+          o van a decir que soy alto vago frontend...
+        </div>
+    </section>
+    <div style="position:absolute; right: 0px;">
+      <button id="exportButton" type="button">SAVE</button>
+    </div>
+
+    <div id="exported" style="position:absolute; top: 800px; border: 2px solid black;">
+
+    </div>
+
+  </body>
+
+</html>
