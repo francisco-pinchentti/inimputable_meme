@@ -15,7 +15,6 @@ To start the cherrypy server
 
 ## Todo
 
-* ipad fix
 * check out https://github.com/hongru/canvas2image for download (no custom filename issue)
 * check export not respecting fontfamily
 * reset button

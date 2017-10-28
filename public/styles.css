@@ -5,6 +5,7 @@ body {
 ul {
     list-style-type: none;
     margin: 0px;
+    padding: 0px;
 }
 
 .inimputable {
@@ -50,12 +51,23 @@ ul {
   font-weight: 600;
 }
 
-.half {
-  width: 50%;
+@media (max-width: 1280px) {
+  .half {
+    width: 80%;
+    margin: 0% 10%;
+  }
 }
 
-.exported-wrapper {
+@media (min-width: 1280px) {
+
+  .half {
+    width: 50%;
+  }
+
+  .exported-wrapper {
     position: absolute;
     top: 48px;
     right: 0px;
+  }
+
 }
