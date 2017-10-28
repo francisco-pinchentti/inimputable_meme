@@ -1,83 +1,54 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link href="/static/styles.css" rel="stylesheet">
-    <script src="/static/jquery-3.2.1.min.js"></script>
-    <script src="/static/html2canvas.min.js"></script>
-    
-    <!--
-    <script src="/static/canvas2image.js"></script>
-    -->
+<head>
+  <link href="/static/styles.css" rel="stylesheet">
+  <script src="/static/jquery-3.2.1.min.js"></script>
+  <script src="/static/html2canvas.min.js"></script>
+  <!-- <script src="/static/canvas2image.js"></script> -->
+  <script src="/static/inimputable.js"></script>
 
-    <script type="text/javascript">
+</head>
 
-      var fontSize = 21;
-      const exportConfig = {
-        width: 600,
-        height: 640
-      }
+<body>
 
-      $(document).ready(function() {
-        $('#inimputable-input')
-        .css("font-size", `${fontSize}px`)
-        .focus()
-        .bind('keydown', function(event) {
-            if (event.key !== '-' && event.key !== '+') {
-              return;
-            }
-            var adj = event.key === '-' ? -1 : 1;
-            fontSize += adj;
-            $('#inimputable-input').css("font-size", `${fontSize+adj}px`);
-            event.preventDefault();
-        });
-
-        $('#exportButton').click( function() {
-          html2canvas($('.inimputable'), {
-            width: exportConfig.width,
-            height: exportConfig.height,
-            onrendered: function(canvas) {
-              $('#exported-list').prepend('<li></li>');
-              $('#exported-list li').first().append(canvas)
-              //Canvas2Image.saveAsPNG(canvas, exportConfig.width, exportConfig.height)
-            }
-          });
-        });
-        
-
-      });
-
-    </script>
-
-  </head>
-
-  <body>
-
+  <header>
     <h2>Inimputable MEME generator!</h2>
+  </header>
 
-    <section class="inimputable">
-      
+  <section class="half">
+
+    <div class="inimputable">
+
       <div class="ininputable-question" contenteditable="true">
-        Que hace si le hacen un meme?
+        Si le hicieran un generador de memes hoy que haría?
       </div>
 
-      <div id="inimputable-input" contenteditable="true">
-        Si me llegan a hacer un meme <br/>
-        vos no podes dejar de habilitar <br /> 
-        el '+' para aumentar el tamaño de la fuente <br />
-        y sino también el '-' para reducirlo <br />
-        porque va a decir que sos hábil frontend developer...
+      <div id="inimputable-input" contenteditable="true" spellcheck="false">
+        Si me llegan a hacer un generador de memes<br/>
+        yo no lo puedo amasijar asinomás y dejar de habilitar<br />
+        el <strong>'+' para aumentar el tamaño de la fuente</strong><br />
+        y sino también el <strong>'-' para reducirlo</strong><br />
+        porque después dicen que sos hábil frontend developer... <br />
+        Vos lo tenés que llevar al lugar más recóndito de la internet,<br />
+        y si es posible a alguna red social y ahí lo reventas<br />
+        a compartir, retweet y me gusta para demostrar tu estado de<br />
+        locura y de inconciencia temporal...<br />
+        sos inimputable hermano en 10 días salís y estás escribiendo algún framework
       </div>
+
     </div>
 
-    <section class="exported-wrapper">
+  </section>
 
-        <h3>Podes <button id="exportButton" type="button">Generar</button> tu meme y despues darle boton derecho para bajar la imágen generada y llevarlas hasta lo más recóndito del disco duro!</h3>
+  <section class="half exported-wrapper">
 
-        <ul id="exported-list"></ul>
+    <h3>Podés <button id="exportButton" type="button">Generar tu meme</button> y después darle botón derecho para bajar la imágen generada y llevarla hasta lo más recóndito del disco duro!</h3>
 
-    </section>
+    <ul id="exported-list"></ul>
 
-  </body>
+  </section>
+
+</body>
 
 </html>
