@@ -5,6 +5,8 @@ const exportConfig = {
 
 $(document).ready(function() {
 
+  $('.social-links').removeClass('hidden');
+
   var fontSize = 19;
 
   $('#inimputable-input')
